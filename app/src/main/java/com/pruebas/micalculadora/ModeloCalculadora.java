@@ -132,6 +132,12 @@ public class ModeloCalculadora {
       oprAltPrio = '%';
       return Integer.valueOf(y);
   }
+
+  public Integer exp(){
+      beta();
+      oprAltPrio = '^';
+      return Integer.valueOf(y);
+  }
     /**
      * 
      * @PRE El estado es valido.
@@ -186,7 +192,8 @@ public class ModeloCalculadora {
   if ( oprAltPrio == '/' ) y = y / z;
   if ( oprAltPrio == '&' ) y = calculeMCD();
   if ( oprAltPrio == '%' ) y = calculeMOD();
-  z = 0;
+  if ( oprAltPrio == '^' ) y = calculeEXP();
+     z = 0;
  }
 
   private int calculeMCD() {
@@ -208,6 +215,13 @@ public class ModeloCalculadora {
 
   private int calculeMOD(){
     return x % y;
+  }
+
+  private int calculeEXP(){
+    int rsl = 1;
+    for (int i = 1; i <= y; i++)
+        rsl = rsl * x;
+    return rsl;
   }
 
   private int minYZ(){
