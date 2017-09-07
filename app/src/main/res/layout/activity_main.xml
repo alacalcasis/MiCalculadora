@@ -52,7 +52,7 @@
             android:text="MOD" />
 
         <Button
-            android:id="@+id/SUM"
+            android:id="@+id/sum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="botonClicado"
