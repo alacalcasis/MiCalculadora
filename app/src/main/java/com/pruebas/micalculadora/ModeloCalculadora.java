@@ -132,6 +132,13 @@ public class ModeloCalculadora {
       oprAltPrio = '%';
       return Integer.valueOf(y);
   }
+
+  public Integer sum(){
+      beta();
+      oprAltPrio = 'z';
+      return Integer.valueOf(y);
+  }
+
     /**
      * 
      * @PRE El estado es valido.
@@ -186,6 +193,7 @@ public class ModeloCalculadora {
   if ( oprAltPrio == '/' ) y = y / z;
   if ( oprAltPrio == '&' ) y = calculeMCD();
   if ( oprAltPrio == '%' ) y = calculeMOD();
+  if ( oprAltPrio == 'z' ) y = calculeSUM();
   z = 0;
  }
 
@@ -208,6 +216,13 @@ public class ModeloCalculadora {
 
   private int calculeMOD(){
     return x % y;
+  }
+
+  private int calculeSUM(){
+    int rsl = 0;
+    for (int i = 1; i <= y; i++)
+        rsl = rsl + x;
+    return rsl;
   }
 
   private int minYZ(){
